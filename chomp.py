@@ -10,7 +10,7 @@ class ChompGame:
 
 
     def __repr__(self):
-        pass
+        return f'{self.rows},{self.cols},{self.state}'
 
 
 class Board:
