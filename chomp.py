@@ -6,7 +6,8 @@ EMOJI = {-1: '\u2612', 0: ' ', 1: '\u2610'}
 
 class ChompGame:
     def __init__(self):
-        pass
+        self.self
+
 
     def __repr__(self):
         pass
@@ -32,12 +33,16 @@ class Board:
         return str(board_df)
 
     def take(self, row, col):
-        pass
-
-    
+        playerx = input('Hi! How wide would you like the board')
+        playery = input('What about height')
+        self.cols = playerx
+        self.rows = playery
 class Player:
     def __init__(self):
-        pass
+        coordinatey = self.rows
+        coordinatex = self.cols
+        self.player = 2
+        player = coordinate
 
     def __repr__(self):
         pass
