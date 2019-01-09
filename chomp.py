@@ -6,8 +6,17 @@ EMOJI = {-1: '\u2612', 0: ' ', 1: '\u2610'}
 
 class ChompGame:
     def __init__(self):
-        self.self
+        playerx = input('Hi! How wide would you like the board')
+        playery = input('What about height')
+        if self.cols == playerx:
+            self.cols = playerx
+        else:
+            self.cols = playerx
 
+        if self.rows == playery:
+            self.rows = playery
+        else:
+            self.rows = playery
 
     def __repr__(self):
         return f'{self.rows},{self.cols},{self.state}'
@@ -27,16 +36,19 @@ class Board:
 
     def __str__(self):
         col_idx = range(self.cols)
-        row_idx = [chr(letter) for letter in range(65, 65+self.rows)]
+        row_idx = [chr(letter) for letter in range(65, 65 + self.rows)]
         board_emoji = np.array([[EMOJI[val] for val in row] for row in self.state])
         board_df = pd.DataFrame(data=board_emoji, index=row_idx, columns=col_idx)
         return str(board_df)
 
     def take(self, row, col):
-        playerx = input('Hi! How wide would you like the board')
-        playery = input('What about height')
-        self.cols = playerx
-        self.rows = playery
+        x = self.cols
+        y = self.rows
+        [for 1 in (x, y)]:
+        ['1'] = ['0']
+        return (self.state)
+
+
 class Player:
     def __init__(self):
         coordinatey = self.rows
@@ -45,4 +57,4 @@ class Player:
         player = coordinate
 
     def __repr__(self):
-        pass
+        return f'{playerx},{playery}'
