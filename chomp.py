@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+import random
 
 EMOJI = {-1: '\u2612', 0: ' ', 1: '\u2610'}
 
@@ -21,6 +22,16 @@ class ChompGame:
     def __repr__(self):
         return f'{self.rows},{self.cols},{self.state}'
 
+    def cointoss(self):
+        cointossinput = [1,2]
+        return cointossinput.random.choice
+
+    def validsize(self):
+        Board = Board()
+        if Board > int(10):
+            print ('Sorry thats invalid you must put something smaller')
+        if Board < int(2):
+            print ('Sorry thats invalid you must put something larger than that')
 
 class Board:
     def __init__(self, rows, cols):
@@ -36,27 +47,18 @@ class Board:
 
     def __str__(self):
         col_idx = range(self.cols)
-        row_idx = [chr(letter) for letter in range(65, 65+self.rows)]
+        row_idx = [chr(letter) for letter in range(65, 65 + self.rows)]
         board_emoji = np.array([[EMOJI[val] for val in row] for row in self.state])
         board_df = pd.DataFrame(data=board_emoji, index=row_idx, columns=col_idx)
         return str(board_df)
 
     def take(self, col, row):
-        for s in self.state:
-          print(s)
-          s[row:] = 0
-          s[col:] = 0
-          
+        self.state[:row+1,col:]
+
+
 class Player:
     def __init__(self):
-        coordinatey = self.rows
-        coordinatex = self.cols
-        self.player = 2
-        player = coordinatey,coordinatex
-
+        player1name = input('Player 1, what would you like your name to be?')
+        player2name = input('Player 2, what would you like your name to be?')
     def __repr__(self):
-      coordinatey = self.rows
-      coordinatex = self.cols
-      self.player = 2
-      player = coordinatey,coordinatex
-      return f'{player}'
+        return f'{player1name},{player2name}'
