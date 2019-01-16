@@ -10,7 +10,7 @@ class ChompGame:
         self.p1 = Player()
         self.p2 = Player()
 
-    def __repr__(self):
+    def __repr__(self,rows,cols):
         return f'{self.rows},{self.cols},{self.state}'
 
     def cointoss(self):
@@ -44,7 +44,8 @@ class Board:
         return str(board_df)
 
     def take(self, col, row):
-        self.state[:row+1,col:]
+        for r in range(row+1):
+          self.state[r][col:] = 0
 
 class Player:
     def __init__(self, score = 0, name = None):
