@@ -6,19 +6,27 @@ EMOJI = {-1: '\u2612', 0: ' ', 1: '\u2610'}
 
 
 class ChompGame:
-    def __init__(self,size = (3,4)):
-        self.p1 = Player()
-        self.p2 = Player()
+    def __init__(self):
+        playerx = input('Hi! How wide would you like the board')
+        playery = input('What about height')
+        if self.cols == playerx:
+            self.cols = playerx
+        else:
+            self.cols = playerx
+        if self.rows == playery:
+            self.rows = playery
+        else:
+            self.rows = playery
 
-    def __repr__(self,rows,cols):
+    def __repr__(self):
         return f'{self.rows},{self.cols},{self.state}'
 
     def cointoss(self):
         cointossinput = [1,2]
-        return random.choice(cointossinput)
+        return cointossinput.random.choice
 
     def validsize(self):
-        Board = Board()
+        Board = self.Board
         if Board > int(10):
             print ('Sorry thats invalid you must put something smaller')
         if Board < int(2):
@@ -44,12 +52,19 @@ class Board:
         return str(board_df)
 
     def take(self, col, row):
-        for r in range(row+1):
-          self.state[r][col:] = 0
+        if (row,col) == 0:
+            return ("Sorry, you already ate that piece")
+        elif col > 10:
+            return ('Woah too high there buddy')
+        elif col < 2:
+            return ('Woah too low there buddy')
+        else:
+        self.state[:row+1,col:]
+
 
 class Player:
-    def __init__(self, score = 0, name = None):
-        self.score = score
-        self.name = input('Please enter your name:')
+    def __init__(self):
+        player1name = input('Player 1, what would you like your name to be?')
+        player2name = input('Player 2, what would you like your name to be?')
     def __repr__(self):
-        return f'{self.score}, {self.name}'
+        return f'{player1name},{player2name}'
