@@ -54,6 +54,9 @@ class Board:
     def take(self, col, row):
         if (row,col) == 0:
             return ("Sorry, you already ate that piece")
+        a = Input("If you want to play again type yes")
+        if a == "yes"
+            return Board = sel.board
         elif col > 10:
             return ('Woah too high there buddy')
         elif col < 2:
