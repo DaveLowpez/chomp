@@ -32,9 +32,15 @@ class ChompGame:
         if Board < int(2):
             print ('Sorry thats invalid you must put something larger than that')
 
-
+    def Play(self):
+        print (Player())
+        print (Board)
+        Board.validsize
+        Board.take()
+        if (row,col) == -1:
+            gameover = 'Yes'
 class Board:
-    def __init__(self, rows, cols):
+        def __init__(self, rows, cols):
         # Use a 2d array to store board state
         # ones for chocolate, zeros for eaten squares, and -1 for poison
         self.rows = rows
@@ -53,21 +59,7 @@ class Board:
         return str(board_df)
 
     def take(self, col, row):
-        if (row,col) == -1:
-            a = input("GAME OVER. If you want to play again type yes")
-            if a == "yes":
-                self.board = Board
-                return Board
-            
-        if (row,col) == 0:
-            return ("Sorry, you already ate that piece")
-        elif col > 10:
-            return ('Woah too high there buddy')
-        elif col < 2:
-            return ('Woah too low there buddy')
-        else:
-            self.state[:row+1,col:]
-
+        self.state[:row+1,col:]
 
 class Player:
     def __init__(self):
