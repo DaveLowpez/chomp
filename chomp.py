@@ -4,6 +4,12 @@ import random
 
 EMOJI = {-1: '\u2612', 0: ' ', 1: '\u2610'}
 
+import numpy as np
+import pandas as pd
+import random
+
+EMOJI = {-1: '\u2612', 0: ' ', 1: '\u2610'}
+
 
 class ChompGame:
     """Contains the control flow for the game"""
@@ -19,6 +25,7 @@ class ChompGame:
         return f'ChompGame({self.n_players}, {self.size})'
 
     def play(self):
+        players = [self.current_player,self.current_player+1]
         self.setup()
         while not self.game_over:
             print(f'{self.current_player}, it\'s your turn!\n')
@@ -26,7 +33,16 @@ class ChompGame:
             self.move()
             if self.board.state[-1][0] == 0:
                 self.game_over = True
-                self.current_player.wins += 1
+                self.current_player.wins - 1
+            else:
+                players.cycle
+
+    def validsize(self):
+        Board = self.Board()
+        if Board > int(10):
+            print ('Sorry thats invalid you must put something smaller')
+        if Board < int(2):
+            print ('Sorry thats invalid you must put something larger than that')
 
     def setup(self):
         for i in range(1, self.n_players + 1):
@@ -63,7 +79,7 @@ class Board:
         return str(board_df)
 
     def take(self, row, col):
-        # self.state[:row+1, col:] = 0
+        self.state[:row+1, col:] = 0
         for r in range(row+1):
             self.state[r][col:] = 0
 
@@ -78,4 +94,3 @@ class Player:
 
     def __str__(self):
         return self.name
-
